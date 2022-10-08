@@ -19,26 +19,25 @@ public class NumberGuesser : MonoBehaviour
 
     void StartGame()
     {
-        guess = (badaNum + chotaNum) / 2;
-        guessText.text = guess.ToString();
-        badaNum = badaNum + 1;
+        NextGuess();
+        //badaNum = badaNum + 1;
     }
 
     public void OnPressHigh()
     {
-        chotaNum = guess;
+        chotaNum = guess + 1 ;
         NextGuess();
     }
 
     public void OnPressLow()
     {
-        badaNum = guess;
+        badaNum = guess - 1;
         NextGuess();
     }
 
     void NextGuess()
     {
-        guess = (badaNum + chotaNum) / 2;
+        guess = Random.Range(chotaNum, badaNum);
         guessText.text = guess.ToString();
     }
 }
